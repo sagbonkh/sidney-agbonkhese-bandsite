@@ -1,19 +1,46 @@
 @use "./variables" as *;
 
-@mixin my-border($radius, $color){
-    border-radius: $radius;
-    border: 2px solid $color;
+@mixin my-border($radius, $color) {
+  border-radius: $radius;
+  border: 2px solid $color;
 }
 
 /* add tablet and desktop breakpoint mixins */
 @mixin tablet {
-    @media screen and (min-width: $tablet-breakpoint) {
-        @content;
-    }
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
+  }
 }
 
 @mixin desktop {
-    @media screen and (min-width: $desktop-breakpoint) {
-        @content;
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin navBarStyles {
+  display: flex;
+  background-color: $bandSite-Black;
+  color: $white;
+  font-family: "AvenirNext LT Pro";
+  font-weight: 600;
+  padding-top: 1rem;
+
+  &__links {
+    &__link {
+      border-radius: 2px;
+      text-decoration: none;
+
+      &--current {
+        border-bottom: 3px solid $white;
+        padding-bottom: 1rem;
+      }
     }
+  }
+  &__header {
+    font-family: "AvenirNext LT Pro";
+    font-weight: 400;
+    color: $white;
+    margin: 0;
+  }
 }

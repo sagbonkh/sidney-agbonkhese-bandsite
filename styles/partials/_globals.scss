@@ -1,4 +1,6 @@
-@use "variables" as *;
+@use "./variables" as *;
+@use "./typography";
+@use "./mixins";
 
 * {
   box-sizing: border-box;
@@ -14,17 +16,26 @@ body {
 }
 
 .nav-bar {
+  display: flex;
   background-color: $bandSite-Black;
-  padding: 15px 20px;
+  color: $white;
+  font-family: "AvenirNext LT Pro";
+  font-weight: 600;
 
-  &__link {
-    border-radius: 2px;
-    color: $white;
-    text-decoration: none;
-    padding: 0px 5px;
+  &__links {
+    &__link {
+      border-radius: 2px;
+      text-decoration: none;
 
-    &--current {
-      border-bottom: 1px solid $white;
+      &--current {
+        border-bottom: 3px solid $white;
+        padding-bottom: 1rem;
+      }
     }
+  }
+  &__header {
+    font-family: "AvenirNext LT Pro";
+    font-weight: 400;
+    color: $white;
   }
 }
