@@ -14,8 +14,25 @@ body {
 body {
   background-color: $white;
 }
+a{
+  text-decoration: none;
+}
+h2, h3{
+  margin-top: 0;
+  color: $white;
+}
+h3{
+  font-weight: 400;
+}
+h2{
+  font-weight: 600;
+}
+span{
+  display: block;
+}
 
 .nav-bar {
+  top: 0;
   display: flex;
   background-color: $bandSite-Black;
   color: $white;
@@ -39,3 +56,15 @@ body {
     color: $white;
   }
 }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  background-color: $bandSite-Black;
+  color: $white;
+  font-family: "AvenirNext LT Pro";
+  font-weight: 600;
+  padding:5% 5%;
+  width: 100vw;
+}
+

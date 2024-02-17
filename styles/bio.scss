@@ -9,10 +9,10 @@
   align-items: center;
   width: 100vw;
 
-//   &__header {
-//     margin: 0;
-//     font-size: 1.5rem;
-//   }
+  //   &__header {
+  //     margin: 0;
+  //     font-size: 1.5rem;
+  //   }
   &__links {
     display: flex;
     justify-content: space-evenly;
@@ -53,4 +53,49 @@
       }
     }
   }
+}
+
+.footer {
+  &__paragraph {
+    font-family: "AvenirNext LT Pro";
+    font-weight: 400;
+  }
+  &__social {
+    &__icons {
+      padding-right: 1rem;
+    }
+  }
+  @include tablet {
+    padding:4% 4%;
+    &__social {
+      &__header {
+        display: inline-block;
+        padding-right: 1rem;
+      }
+      &__icons {
+        padding-right: 1rem;
+      }
+    }
+    &__contact{
+        display: flex;
+
+        &__address{
+            padding-right: 5%;
+            padding-top: 2%;
+            padding-bottom: 2%;
+
+        }
+        &__bandsite{
+            position: absolute;
+            top: 2.5rem;
+            right: 4rem;
+        }
+    }
+  }
+  @include desktop {
+    padding:4% 10%;
+  }
+}
+
+.footer__bandsite {
 }
