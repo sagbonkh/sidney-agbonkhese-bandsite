@@ -8,11 +8,6 @@
   flex-direction: column;
   align-items: center;
   width: 100vw;
-
-  //   &__header {
-  //     margin: 0;
-  //     font-size: 1.5rem;
-  //   }
   &__links {
     display: flex;
     justify-content: space-evenly;
@@ -55,6 +50,47 @@
   }
 }
 
+.hero {
+  background-image: url("../assets/images/hero-bio.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  height: 18vh;
+  &__text {
+    margin: 0;
+    color: $white;
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+  }
+  @include tablet {
+    height: 25vh;
+    &__text {
+      font-size: 3.75rem;
+    }
+  }
+  @include desktop {
+    height: 35vh;
+  }
+}
+
+.about {
+    padding: 5%;
+  &__title {
+    color: $bandSite-Black;
+  }
+  &__img{
+    width: fit-content;
+  }
+  @include tablet {
+    &__title {
+      font-size: 3.75rem;
+    }
+  }
+  @include desktop {
+  }
+}
+
 .footer {
   &__paragraph {
     font-family: "AvenirNext LT Pro";
@@ -66,7 +102,7 @@
     }
   }
   @include tablet {
-    padding:4% 4%;
+    padding: 4% 4%;
     &__social {
       &__header {
         display: inline-block;
@@ -76,26 +112,22 @@
         padding-right: 1rem;
       }
     }
-    &__contact{
-        display: flex;
+    &__contact {
+      display: flex;
 
-        &__address{
-            padding-right: 5%;
-            padding-top: 2%;
-            padding-bottom: 2%;
-
-        }
-        &__bandsite{
-            position: absolute;
-            top: 2.5rem;
-            right: 4rem;
-        }
+      &__address {
+        padding-right: 5%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+      }
+      &__bandsite {
+        position: absolute;
+        top: 2.5rem;
+        right: 4rem;
+      }
     }
   }
   @include desktop {
-    padding:4% 10%;
+    padding: 4% 10%;
   }
-}
-
-.footer__bandsite {
 }

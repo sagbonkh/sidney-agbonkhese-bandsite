@@ -32,6 +32,12 @@ a {
   text-decoration: none;
 }
 
+h1 {
+  font-family: "AvenirNext LT Pro";
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
 h2, h3 {
   margin-top: 0;
   color: #FFFFFF;
@@ -64,11 +70,6 @@ span {
 .nav-bar__links__link--current {
   border-bottom: 3px solid #FFFFFF;
   padding-bottom: 1rem;
-}
-.nav-bar__header {
-  font-family: "AvenirNext LT Pro";
-  font-weight: 400;
-  color: #FFFFFF;
 }
 
 .footer {
@@ -190,6 +191,49 @@ span {
   }
 }
 
+.hero {
+  background-image: url("../assets/images/hero-bio.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  height: 18vh;
+}
+.hero__text {
+  margin: 0;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  padding-left: 5%;
+}
+@media screen and (min-width: 768px) {
+  .hero {
+    height: 25vh;
+  }
+  .hero__text {
+    font-size: 3.75rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero {
+    height: 35vh;
+  }
+}
+
+.about {
+  padding: 5%;
+}
+.about__title {
+  color: #323232;
+}
+.about__img {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+@media screen and (min-width: 768px) {
+  .about__title {
+    font-size: 3.75rem;
+  }
+}
 .footer__paragraph {
   font-family: "AvenirNext LT Pro";
   font-weight: 400;

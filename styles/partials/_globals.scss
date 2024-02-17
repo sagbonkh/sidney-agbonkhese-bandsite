@@ -17,6 +17,11 @@ body {
 a{
   text-decoration: none;
 }
+h1{
+  font-family: "AvenirNext LT Pro";
+  font-weight: 700;
+  font-size: 1.5rem;
+}
 h2, h3{
   margin-top: 0;
   color: $white;
@@ -50,12 +55,9 @@ span{
       }
     }
   }
-  &__header {
-    font-family: "AvenirNext LT Pro";
-    font-weight: 400;
-    color: $white;
-  }
 }
+
+
 
 .footer {
   position: fixed;
