@@ -39,6 +39,7 @@ h1 {
 }
 
 h2, h3 {
+  font-family: "AvenirNext LT Pro";
   margin-top: 0;
   color: #FFFFFF;
 }
@@ -53,6 +54,11 @@ h2 {
 
 span {
   display: block;
+}
+
+p {
+  font-family: "AvenirNext LT Pro";
+  font-weight: 400;
 }
 
 .nav-bar {
@@ -73,8 +79,6 @@ span {
 }
 
 .footer {
-  position: fixed;
-  bottom: 0;
   background-color: #323232;
   color: #FFFFFF;
   font-family: "AvenirNext LT Pro";
@@ -222,16 +226,37 @@ span {
 .about {
   padding: 5%;
 }
-.about__title {
+.about__sect__title {
   color: #323232;
 }
-.about__img {
-  width: -moz-fit-content;
-  width: fit-content;
+.about__sect--subheading {
+  color: #000000;
+  margin-bottom: 0%;
+}
+.about__sect__img {
+  width: 100%;
+}
+.about__sect--quoted {
+  font-weight: 600;
+  color: #323232;
+}
+.about__sect__text--paragraph {
+  color: #323232;
 }
 @media screen and (min-width: 768px) {
-  .about__title {
+  .about__sect {
+    padding-left: 11%;
+    padding-right: 11%;
+  }
+  .about__sect__title {
     font-size: 3.75rem;
+  }
+  .about__sect__text {
+    display: flex;
+    justify-content: space-between;
+  }
+  .about__sect__text--paragraph {
+    width: 48%;
   }
 }
 .footer__paragraph {

@@ -75,16 +75,44 @@
 }
 
 .about {
-    padding: 5%;
-  &__title {
-    color: $bandSite-Black;
-  }
-  &__img{
-    width: fit-content;
-  }
-  @include tablet {
+  padding: 5%;
+
+  &__sect {
     &__title {
-      font-size: 3.75rem;
+      color: $bandSite-Black;
+    }
+    &--subheading {
+      color: $bandSite-DarkBlack;
+      margin-bottom: 0%;
+    }
+    &__img {
+      width: 100%;
+    }
+    &--quoted {
+      font-weight: 600;
+      color: $bandSite-Black;
+    }
+    &__text {
+      &--paragraph {
+        color: $bandSite-Black;
+      }
+    }
+  }
+
+  @include tablet {
+    &__sect {
+      padding-left: 11%;
+      padding-right: 11%;
+      &__title {
+        font-size: 3.75rem;
+      }
+      &__text {
+        display: flex;
+        justify-content: space-between;
+        &--paragraph {
+          width: 48%;
+        }
+      }
     }
   }
   @include desktop {
