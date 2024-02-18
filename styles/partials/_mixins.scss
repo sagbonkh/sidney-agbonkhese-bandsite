@@ -19,12 +19,7 @@
 }
 
 @mixin navBarStyles {
-  display: flex;
-  background-color: $bandSite-Black;
-  color: $white;
-  font-family: "AvenirNext LT Pro";
-  font-weight: 600;
-  padding-top: 1rem;
+  @include commonNavStyles;
 
   &__links {
     &__link {
@@ -45,5 +40,23 @@
     color: $white;
     margin: 0;
     font-size: $mobile-sub;
+  }
+}
+
+@mixin commonNavStyles {
+  display: flex;
+  background-color: $bandSite-Black;
+  color: $white;
+  font-family: "AvenirNext LT Pro";
+  font-weight: 600;
+  padding-top: 1rem;
+}
+
+@mixin commonFooterStyles {
+  position: relative;
+  &__paragraph {
+    font-family: "AvenirNext LT Pro";
+    font-weight: 400;
+    font-size: $mobile-p;
   }
 }
