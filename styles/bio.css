@@ -35,7 +35,6 @@ a {
 h1 {
   font-family: "AvenirNext LT Pro";
   font-weight: 700;
-  font-size: 1.5rem;
 }
 
 h2, h3 {
@@ -70,12 +69,14 @@ p {
   font-weight: 600;
 }
 .nav-bar__links__link {
-  border-radius: 2px;
+  border-radius: 0.125em;
   text-decoration: none;
+  font-weight: 400;
 }
 .nav-bar__links__link--current {
-  border-bottom: 3px solid #FFFFFF;
+  border-bottom: 0.1875rem solid #FFFFFF;
   padding-bottom: 1rem;
+  font-weight: 600;
 }
 
 .footer {
@@ -85,6 +86,7 @@ p {
   font-weight: 600;
   padding: 5% 5%;
   width: 100vw;
+  font-size: 0.813rem;
 }
 
 .nav-bar {
@@ -99,18 +101,21 @@ p {
   width: 100vw;
 }
 .nav-bar__links__link {
-  border-radius: 2px;
+  border-radius: 0.125rem;
   text-decoration: none;
+  font-size: 0.813rem;
 }
 .nav-bar__links__link--current {
-  border-bottom: 3px solid #FFFFFF;
+  border-bottom: 0.1875rem solid #FFFFFF;
   padding-bottom: 1rem;
+  font-size: 0.813rem;
 }
 .nav-bar__header {
   font-family: "AvenirNext LT Pro";
   font-weight: 400;
   color: #FFFFFF;
   margin: 0;
+  font-size: 0.875rem;
 }
 .nav-bar__links {
   display: flex;
@@ -122,7 +127,11 @@ p {
   width: 50%;
   justify-content: center;
 }
-@media screen and (min-width: 768px) {
+.nav-bar__links__link:hover {
+  border-bottom: 0.125rem solid #FFFFFF;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 48em) {
   .nav-bar {
     display: flex;
     background-color: #323232;
@@ -135,18 +144,21 @@ p {
     padding-left: 2rem;
   }
   .nav-bar__links__link {
-    border-radius: 2px;
+    border-radius: 0.125rem;
     text-decoration: none;
+    font-size: 0.813rem;
   }
   .nav-bar__links__link--current {
-    border-bottom: 3px solid #FFFFFF;
+    border-bottom: 0.1875rem solid #FFFFFF;
     padding-bottom: 1rem;
+    font-size: 0.813rem;
   }
   .nav-bar__header {
     font-family: "AvenirNext LT Pro";
     font-weight: 400;
     color: #FFFFFF;
     margin: 0;
+    font-size: 0.875rem;
   }
   .nav-bar__links {
     justify-content: flex-start;
@@ -156,9 +168,13 @@ p {
     margin-left: 4rem;
     padding-top: 1rem;
     width: auto;
+    font-size: 0.875rem;
+  }
+  .nav-bar__header {
+    font-size: 1.5rem;
   }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 80em) {
   .nav-bar {
     display: flex;
     background-color: #323232;
@@ -166,60 +182,69 @@ p {
     font-family: "AvenirNext LT Pro";
     font-weight: 600;
     padding-top: 1rem;
-    width: 100vw;
-    flex-direction: row;
-    padding-left: 2rem;
   }
   .nav-bar__links__link {
-    border-radius: 2px;
+    border-radius: 0.125rem;
     text-decoration: none;
+    font-size: 0.813rem;
   }
   .nav-bar__links__link--current {
-    border-bottom: 3px solid #FFFFFF;
+    border-bottom: 0.1875rem solid #FFFFFF;
     padding-bottom: 1rem;
+    font-size: 0.813rem;
   }
   .nav-bar__header {
     font-family: "AvenirNext LT Pro";
     font-weight: 400;
     color: #FFFFFF;
     margin: 0;
+    font-size: 0.875rem;
   }
-  .nav-bar__links {
-    justify-content: flex-start;
-    width: 100%;
-  }
-  .nav-bar__links__link {
-    margin-left: 4rem;
-    padding-top: 1rem;
-    width: auto;
+  .nav-bar__header {
+    font-size: 1.5rem;
   }
 }
 
 .hero {
+  position: relative;
   background-image: url("../assets/images/hero-bio.jpg");
   background-position: center;
   background-size: cover;
   display: flex;
-  height: 18vh;
+  height: 60vh;
 }
 .hero__text {
+  font-size: 1.5rem;
   margin: 0;
   color: #FFFFFF;
   display: flex;
   align-items: center;
+  position: relative;
   padding-left: 5%;
+  z-index: 1;
 }
-@media screen and (min-width: 768px) {
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #323232;
+  z-index: 0;
+  opacity: 0.5;
+}
+@media screen and (min-width: 48em) {
   .hero {
-    height: 25vh;
+    height: 100vh;
   }
   .hero__text {
     font-size: 3.75rem;
   }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 80em) {
   .hero {
-    height: 35vh;
+    height: 100vh;
   }
 }
 
@@ -227,40 +252,62 @@ p {
   padding: 5%;
 }
 .about__sect__title {
+  margin-top: 2rem;
   color: #323232;
+  font-size: 1.5rem;
 }
 .about__sect--subheading {
   color: #000000;
   margin-bottom: 0%;
+  font-size: 0.875rem;
 }
 .about__sect__img {
   width: 100%;
 }
-.about__sect--quoted {
+.about__sect__text {
   font-weight: 600;
   color: #323232;
+  font-size: 0.813rem;
 }
 .about__sect__text--paragraph {
   color: #323232;
+  font-size: 0.813rem;
 }
-@media screen and (min-width: 768px) {
+.about__sect__text--quoted {
+  font-weight: 600;
+  color: #323232;
+  font-size: 0.813rem;
+}
+@media screen and (min-width: 48em) {
   .about__sect {
     padding-left: 11%;
     padding-right: 11%;
   }
   .about__sect__title {
-    font-size: 3.75rem;
+    font-size: 2.25rem;
   }
   .about__sect__text {
     display: flex;
     justify-content: space-between;
+    font-size: 0.875rem;
+    width: 70%;
   }
   .about__sect__text--paragraph {
     width: 48%;
+    font-size: 0.75rem;
+  }
+  .about__sect__text--quoted {
+    font-weight: 600;
+    color: #323232;
+    font-size: 0.75rem;
   }
 }
+
 .gallery {
   padding: 5%;
+}
+.gallery__title {
+  font-size: 1.5rem;
 }
 .gallery__sect {
   display: flex;
@@ -271,7 +318,10 @@ p {
   margin-right: 1rem;
   margin-bottom: 1rem;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
+  .gallery__title {
+    font-size: 2.25rem;
+  }
   .gallery__sect__image {
     width: 30%;
   }
@@ -282,17 +332,28 @@ p {
 .footer__paragraph {
   font-family: "AvenirNext LT Pro";
   font-weight: 400;
+  font-size: 0.813rem;
+}
+.footer__social__header {
+  font-size: 1.5rem;
 }
 .footer__social__icons {
   padding-right: 1rem;
 }
-@media screen and (min-width: 768px) {
+.footer__contact__address--subheading {
+  font-size: 0.875rem;
+}
+@media screen and (min-width: 48em) {
   .footer {
     padding: 4% 4%;
+  }
+  .footer__paragraph {
+    font-size: 0.875rem;
   }
   .footer__social__header {
     display: inline-block;
     padding-right: 1rem;
+    font-size: 2.25rem;
   }
   .footer__social__icons {
     padding-right: 1rem;
@@ -305,13 +366,17 @@ p {
     padding-top: 2%;
     padding-bottom: 2%;
   }
+  .footer__contact__address--subheading {
+    font-size: 1.5rem;
+  }
   .footer__contact__bandsite {
     position: absolute;
     top: 2.5rem;
     right: 4rem;
+    font-size: 1.5rem;
   }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 80em) {
   .footer {
     padding: 4% 10%;
   }
