@@ -76,7 +76,6 @@
 
 .about {
   padding: 5%;
-
   &__sect {
     &__title {
       color: $bandSite-Black;
@@ -119,7 +118,30 @@
   }
 }
 
+.gallery {
+  padding: 5%;
+  &__sect {
+    display: flex;
+    flex-wrap: wrap;
+    &__image {
+      width: 100%;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+  @include tablet {
+    &__sect {
+      &__image {
+        width: 30%;
+      }
+    }
+    @include tablet {
+    }
+  }
+}
+
 .footer {
+    position: relative;
   &__paragraph {
     font-family: "AvenirNext LT Pro";
     font-weight: 400;

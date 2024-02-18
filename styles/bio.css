@@ -259,6 +259,26 @@ p {
     width: 48%;
   }
 }
+.gallery {
+  padding: 5%;
+}
+.gallery__sect {
+  display: flex;
+  flex-wrap: wrap;
+}
+.gallery__sect__image {
+  width: 100%;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .gallery__sect__image {
+    width: 30%;
+  }
+}
+.footer {
+  position: relative;
+}
 .footer__paragraph {
   font-family: "AvenirNext LT Pro";
   font-weight: 400;
