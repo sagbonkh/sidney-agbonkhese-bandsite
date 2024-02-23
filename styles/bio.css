@@ -483,6 +483,8 @@ button {
 }
 .user-comments-text {
   padding-left: 1rem;
+  position: relative;
+  min-width: 93%;
 }
 .user-comments-name {
   color: #323232;

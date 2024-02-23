@@ -296,6 +296,8 @@
   }
   &-text{
     padding-left: 1rem;
+    position: relative;
+    min-width:93%
   }
   &-name{
     color: $bandSite-Black;
