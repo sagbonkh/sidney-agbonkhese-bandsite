@@ -39,6 +39,39 @@ p{
   font-family: "AvenirNext LT Pro";
   font-weight: 400;
 }
+textarea, input{
+  font-family: "AvenirNext LT Pro";
+  font-weight: 400;
+  color: black;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  width: 100%;
+}
+input{
+  min-height: 2.375rem;
+  
+  padding: 0.75rem;
+}
+textarea{
+  min-height: 7rem;
+
+}
+label{
+  font-family: "AvenirNext LT Pro";
+  font-weight: 600;
+}
+button{
+  font-family: "AvenirNext LT Pro";
+  font-weight: 600;
+  background-color: $bandSite-Black;
+  color: $white;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 0.3rem;
+  height: 2.5rem;
+  min-width: 9.375rem;
+  padding: 0rem 2rem;
+}
 
 .nav-bar {
   top: 0;
@@ -73,5 +106,8 @@ p{
   padding:5% 5%;
   width: 100vw;
   font-size:$mobile-p;
+  &__paragraph {
+    color: $white;
+  }
 }
 
