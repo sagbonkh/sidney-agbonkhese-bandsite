@@ -66,16 +66,19 @@ textarea, input {
   color: black;
   margin-bottom: 1rem;
   border-radius: 0.25rem;
+  border: 1px solid #E1E1E1;
   width: 100%;
 }
 
 input {
-  min-height: 2.375rem;
+  min-height: 2.25rem;
   padding: 0.75rem;
 }
 
 textarea {
-  min-height: 7rem;
+  min-height: 2.25rem;
+  height: 7rem;
+  padding: 0.75rem;
 }
 
 label {
@@ -455,10 +458,42 @@ button {
   margin: 0%;
   color: #AFAFAF;
 }
+.comments-btn:hover {
+  background-color: #000000;
+}
+.comments-name:active, .comments-content:active {
+  border-color: #000000;
+}
 @media screen and (min-width: 48em) {
-  .comments__avatar {
+  .comments-title {
+    font-size: 2.25rem;
+  }
+  .comments-form {
+    display: flex;
+    justify-content: center;
+  }
+  .comments-avatar {
     max-width: 3rem;
     max-height: 3rem;
+  }
+  .comments-btn {
+    min-width: 9.375rem;
+    width: 30%;
+    position: relative;
+    left: 70%;
+  }
+  .comments-name, .comments-content {
+    margin-top: 0.3rem;
+    min-height: 3rem;
+    padding: 1rem;
+  }
+  .comments-content {
+    height: 9rem;
+  }
+}
+@media screen and (min-width: 80em) {
+  .comments-content {
+    height: 12rem;
   }
 }
 
@@ -501,4 +536,20 @@ button {
 .user-comments-comment {
   font-size: 0.813rem;
   margin-top: 0%;
+}
+@media screen and (min-width: 48em) {
+  .user-comments-text {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    min-width: 97%;
+  }
+  .user-comments-name {
+    font-size: 0.875rem;
+  }
+  .user-comments-date {
+    font-size: 0.875rem;
+  }
+  .user-comments-comment {
+    font-size: 0.875rem;
+  }
 }/*# sourceMappingURL=bio.css.map */

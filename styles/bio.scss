@@ -268,10 +268,42 @@
     margin: 0%;
     color: $silver;
   }
+  &-btn:hover{
+    background-color: $bandSite-DarkBlack;
+  }
+  &-name:active,&-content:active{
+    border-color: $bandSite-DarkBlack;
+  } 
   @include tablet {
-    &__avatar {
+    &-title{
+      font-size: $larger-sect-header;
+    }
+    &-form{
+      display: flex;
+      justify-content: center;
+    }
+    &-avatar {
       max-width: 3rem;
       max-height: 3rem;
+    }
+    &-btn{
+      min-width: 9.375rem;
+      width: 30%;
+      position: relative;
+      left: 70%;
+    }
+    &-name, &-content{
+      margin-top: 0.3rem;
+      min-height: 3rem;
+      padding: 1rem;
+    }
+    &-content{
+      height: 9rem;
+    }
+  }
+  @include desktop {
+    &-content{
+      height: 12rem;
     }
   }
 }
@@ -314,5 +346,21 @@
   &-comment{
     font-size: $mobile-p;
     margin-top: 0%;
+  }
+  @include tablet{
+    &-text{
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      min-width: 97%;
+    }
+    &-name{
+      font-size: $larger-p;
+    }
+    &-date{
+      font-size: $larger-p;
+    }
+    &-comment{
+      font-size: $larger-p;
+    }
   }
 }

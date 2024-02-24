@@ -1,5 +1,5 @@
 let commentSect = document.querySelector(".comments");
-let title = document.createElement("h2");
+let title = document.createElement("h1");
 title.classList.add("comments-title");
 title.textContent = `Join The Conversation`;
 commentSect.appendChild(title);
@@ -26,6 +26,7 @@ inputArea.appendChild(nameLabel);
 
 let nameInput = document.createElement("input");
 nameInput.setAttribute("type", "text");
+nameInput.setAttribute("class", "comments-name");
 nameInput.placeholder = "Enter your name";
 nameInput.name = "name";
 inputArea.appendChild(nameInput);
@@ -38,6 +39,7 @@ inputArea.appendChild(commentLabel);
 
 let textArea = document.createElement("textarea");
 textArea.setAttribute("type", "text");
+textArea.setAttribute("class", "comments-content");
 textArea.placeholder = "Add a new comment";
 textArea.name = "comment";
 inputArea.appendChild(textArea);
@@ -45,6 +47,7 @@ inputArea.appendChild(textArea);
 let submitBtn = document.createElement("button");
 submitBtn.textContent = "COMMENT";
 submitBtn.setAttribute("type", "submit");
+submitBtn.classList.add("comments-btn");
 inputArea.appendChild(submitBtn);
 
 const populateComments = (element) => {
