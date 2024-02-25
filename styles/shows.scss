@@ -142,7 +142,13 @@ iframe {
   }
   &-single{
     border-bottom: 1px solid $mercury;
-    padding-top: 1rem;
+    padding: 1rem;
+  }
+  &-single:hover{
+    background-color: $alabaster;
+  }
+  &-single:active{
+    background-color: $mercury;
   }
 
   @include tablet {
@@ -153,6 +159,7 @@ iframe {
     &-single {
       display: flex;
       justify-content: space-between;
+      padding: 1.5rem 1.125rem;
     }
     &-super-labels {
       display: flex;

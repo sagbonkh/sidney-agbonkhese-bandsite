@@ -341,7 +341,13 @@ iframe {
 }
 .shows-single {
   border-bottom: 1px solid #E1E1E1;
-  padding-top: 1rem;
+  padding: 1rem;
+}
+.shows-single:hover {
+  background-color: #FAFAFA;
+}
+.shows-single:active {
+  background-color: #E1E1E1;
 }
 @media screen and (min-width: 48em) {
   .shows {
@@ -353,6 +359,7 @@ iframe {
   .shows-single {
     display: flex;
     justify-content: space-between;
+    padding: 1.5rem 1.125rem;
   }
   .shows-super-labels {
     display: flex;
