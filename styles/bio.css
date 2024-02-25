@@ -100,6 +100,10 @@ button {
   padding: 0rem 2rem;
 }
 
+iframe {
+  z-index: 1;
+}
+
 .nav-bar {
   top: 0;
   display: flex;

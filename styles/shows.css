@@ -100,6 +100,10 @@ button {
   padding: 0rem 2rem;
 }
 
+iframe {
+  z-index: 1;
+}
+
 .nav-bar {
   top: 0;
   display: flex;
@@ -130,6 +134,12 @@ button {
 }
 .footer__paragraph {
   color: #FFFFFF;
+}
+
+@media screen and (min-width: 48em) {
+  iframe {
+    width: 40%;
+  }
 }
 
 .nav-bar {
@@ -171,7 +181,7 @@ button {
   justify-content: center;
 }
 .nav-bar__links__link:hover {
-  border-bottom: 0.125rem solid #FFFFFF;
+  border-bottom: 0.06rem solid #AFAFAF;
   padding-bottom: 1rem;
 }
 @media screen and (min-width: 48em) {
@@ -268,6 +278,9 @@ button {
 .album-title {
   width: 60%;
 }
+.album-classic {
+  z-index: 1;
+}
 .album::before {
   content: "";
   position: absolute;
@@ -292,6 +305,89 @@ button {
   .album-title {
     width: 50%;
     font-size: 3.75rem;
+  }
+}
+
+.shows {
+  padding: 2rem 1rem;
+}
+.shows-title {
+  color: #000000;
+  font-size: 1.5rem;
+}
+.shows-label {
+  color: #AFAFAF;
+  font-weight: 600;
+  font-size: 0.813rem;
+}
+.shows-super-labels {
+  display: none;
+  color: #AFAFAF;
+  font-weight: 600;
+  font-size: 0.813rem;
+}
+.shows-date {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+.shows-text {
+  font-size: 0.813rem;
+}
+.shows-btn {
+  width: 100%;
+}
+.shows-sect {
+  position: relative;
+}
+.shows-single {
+  border-bottom: 1px solid #E1E1E1;
+  padding-top: 1rem;
+}
+@media screen and (min-width: 48em) {
+  .shows {
+    padding: 3rem;
+  }
+  .shows-title {
+    font-size: 2.25rem;
+  }
+  .shows-single {
+    display: flex;
+    justify-content: space-between;
+  }
+  .shows-super-labels {
+    display: flex;
+    font-size: 0.875rem;
+  }
+  .shows-super-label {
+    padding-left: 1%;
+    padding-right: 23%;
+  }
+  .shows-label {
+    display: none;
+  }
+  .shows-text {
+    font-size: 0.875rem;
+  }
+  .shows-date {
+    font-size: 0.875rem;
+  }
+  .shows-btn {
+    width: 9.375rem;
+  }
+}
+@media screen and (min-width: 80em) {
+  .shows {
+    display: flex;
+  }
+  .shows-super-label {
+    padding-left: 3%;
+    padding-right: 22.2%;
+  }
+  .shows-title {
+    padding-right: 2rem;
+  }
+  .shows-sect {
+    width: 97%;
   }
 }
 
