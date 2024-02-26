@@ -1,0 +1,257 @@
+@use "./partials/globals";
+@use "./partials/typography";
+@use "./partials/variables" as *;
+@use "./partials/mixins" as *;
+
+iframe {
+  @include tablet {
+    width: 40%;
+  }
+}
+
+.nav-bar {
+  @include navBarStyles;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  &__links {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    &__link {
+      display: flex;
+      width: 50%;
+      justify-content: center;
+
+      &:hover {
+        border-bottom: 0.06rem solid $silver;
+        padding-bottom: 1rem;
+      }
+    }
+  }
+  @include tablet {
+    @include navBarStyles;
+    width: 100vw;
+    flex-direction: row;
+    padding-left: 2rem;
+    &__links {
+      justify-content: flex-start;
+      width: 100%;
+      &__link {
+        margin-left: 4rem;
+        padding-top: 1rem;
+        width: auto;
+        font-size: $larger-p;
+      }
+    }
+    &__header {
+      font-size: $larger-sub;
+    }
+  }
+  @include desktop {
+    @include navBarStyles;
+    &__header {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.album {
+  padding: 1rem;
+  position: relative;
+  background-image: url("../assets/images/hero-shows.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  height: 40vh;
+  flex-direction: column;
+  color: $white;
+
+  &-text,
+  &-title {
+    z-index: 1;
+  }
+
+  &-text {
+    font-weight: 600;
+  }
+  &-title {
+    width: 60%;
+  }
+  &-classic {
+    z-index: 1;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $bandSite-Black;
+    z-index: 0;
+    opacity: 0.5;
+  }
+
+  @include tablet {
+    padding: 5rem;
+    &-text {
+      font-size: $larger-sub;
+    }
+    &-title {
+      width: 38%;
+      font-size: $larger-sect-header;
+    }
+  }
+  @include desktop {
+    &-title {
+      width: 50%;
+      font-size: $larger-header;
+    }
+  }
+}
+.shows {
+  padding: 2rem 1rem;
+  &-title {
+    color: $bandSite-DarkBlack;
+    font-size: $mobile-header;
+  }
+  &-label {
+    color: $silver;
+    font-weight: 600;
+    font-size: $mobile-p;
+  }
+  &-super-labels {
+    display: none;
+    color: $silver;
+    font-weight: 600;
+    font-size: $mobile-p;
+  }
+  &-date {
+    font-weight: 600;
+    font-size: $mobile-sub;
+  }
+  &-text {
+    font-size: $mobile-p;
+  }
+  &-btn {
+    width: 100%;
+  }
+  &-sect {
+    position: relative;
+  }
+  &-single{
+    border-bottom: 1px solid $mercury;
+    padding: 1rem;
+  }
+  &-single:hover{
+    background-color: $alabaster;
+  }
+  &-single:active{
+    background-color: $mercury;
+  }
+
+  @include tablet {
+    padding:3rem 2.25rem 2.25rem;
+    &-title{
+        font-size: $larger-sect-header;
+        padding-bottom: 2.25rem;
+        margin-bottom: 0rem;
+    }
+    &-single {
+      display: flex;
+      justify-content: space-between;
+      padding: 1.5rem 1.125rem;
+    }
+    &-super-labels {
+      display: flex;
+      font-size: $larger-p;
+    }
+    &-super-label {
+        padding-left: 1%;
+        padding-right: 23%;
+      }
+    &-label {
+        display: none;
+    }
+    &-text {
+        font-size: $larger-p;
+    }
+    &-date {
+        font-size: $larger-p;
+    }
+    &-btn {
+        width: 9.375rem;
+    }
+}
+@include desktop {
+    display: flex;
+    &-super-label {
+      padding-left: 3%;
+      padding-right: 22.2%;
+    }
+    &-title {
+        padding-right: 2rem;
+      }
+    &-sect {
+        width: 97%
+      }
+  }
+}
+
+.footer {
+  @include commonFooterStyles;
+  &__social {
+    &__header {
+      font-size: $mobile-header;
+    }
+    &__icons {
+      padding-right: 1rem;
+    }
+  }
+  &__contact {
+    &__address {
+      &--subheading {
+        font-size: $mobile-sub;
+      }
+    }
+  }
+  @include tablet {
+    padding: 4% 4%;
+    &__paragraph {
+      font-size: $larger-p;
+    }
+    &__social {
+      &__header {
+        display: inline-block;
+        padding-right: 1rem;
+        font-size: $larger-sect-header;
+      }
+      &__icons {
+        padding-right: 1rem;
+      }
+    }
+    &__contact {
+      display: flex;
+
+      &__address {
+        padding-right: 10%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        &--subheading {
+          font-size: $larger-sub;
+        }
+      }
+      &__bandsite {
+        position: absolute;
+        top: 2.5rem;
+        right: 4rem;
+        font-size: $larger-sub;
+      }
+    }
+  }
+  @include desktop {
+    padding: 4% 10%;
+  }
+}

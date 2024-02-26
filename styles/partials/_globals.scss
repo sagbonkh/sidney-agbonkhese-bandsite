@@ -16,6 +16,7 @@ body {
 }
 a{
   text-decoration: none;
+  color: $white;
 }
 h1{
   font-family: "AvenirNext LT Pro";
@@ -38,6 +39,43 @@ span{
 p{
   font-family: "AvenirNext LT Pro";
   font-weight: 400;
+}
+textarea, input{
+  font-family: "AvenirNext LT Pro";
+  font-weight: 400;
+  color: black;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid $mercury;
+  width: 100%;
+}
+input{
+  min-height: 2.25rem;
+  padding: 0.75rem;
+}
+textarea{
+  min-height: 2.25rem;
+  height: 7rem;
+  padding: 0.75rem;
+}
+label{
+  font-family: "AvenirNext LT Pro";
+  font-weight: 600;
+}
+button{
+  font-family: "AvenirNext LT Pro";
+  font-weight: 600;
+  background-color: $bandSite-Black;
+  color: $white;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 0.3rem;
+  height: 2.5rem;
+  min-width: 9.375rem;
+  padding: 0rem 2rem;
+}
+iframe{
+  z-index: 1;
 }
 
 .nav-bar {
@@ -73,5 +111,8 @@ p{
   padding:5% 5%;
   width: 100vw;
   font-size:$mobile-p;
+  &__paragraph {
+    color: $white;
+  }
 }
 
