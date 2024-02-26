@@ -435,11 +435,13 @@ iframe {
 }
 
 .comments {
-  padding: 1rem 2rem;
+  padding: 1.5rem 1rem 1rem;
 }
 .comments-title {
   font-size: 1.5rem;
   color: #323232;
+  padding-bottom: 1rem;
+  margin: 0rem;
 }
 .comments-form {
   display: flex;
@@ -469,9 +471,17 @@ iframe {
 .comments-name:active, .comments-content:active {
   border-color: #000000;
 }
+.comments-name-error, .comments-content-error {
+  border-color: #d22d2d;
+}
 @media screen and (min-width: 48em) {
+  .comments {
+    padding: 3rem 2.25rem 2.25rem;
+  }
   .comments-title {
     font-size: 2.25rem;
+    padding-bottom: 2.25rem;
+    margin-bottom: 0rem;
   }
   .comments-form {
     display: flex;

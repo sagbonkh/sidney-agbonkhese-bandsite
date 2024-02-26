@@ -293,6 +293,9 @@ iframe {
   opacity: 0.5;
 }
 @media screen and (min-width: 48em) {
+  .album {
+    padding: 5rem;
+  }
   .album-text {
     font-size: 1.5rem;
   }
@@ -351,10 +354,12 @@ iframe {
 }
 @media screen and (min-width: 48em) {
   .shows {
-    padding: 3rem;
+    padding: 3rem 2.25rem 2.25rem;
   }
   .shows-title {
     font-size: 2.25rem;
+    padding-bottom: 2.25rem;
+    margin-bottom: 0rem;
   }
   .shows-single {
     display: flex;

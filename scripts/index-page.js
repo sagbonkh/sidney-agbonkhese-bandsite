@@ -117,13 +117,33 @@ form.addEventListener("submit", (event) => {
     month: "2-digit",
     year: "numeric",
   });
-  let obj = { name: userName, comment: userComment, date: userDate };
-  commentsArray.push(obj);
-  nameInput.value = "";
-  textArea.value = "";
-  userComments.innerHTML = "";
+  if (userName === "" || userComment === "") {
+    alert(`Username or comment not set. Please fill these fields.`);
 
-  commentsArray.forEach((element) => {
-    populateComments(element);
-  });
+    if(userName === ""){
+      nameInput.setAttribute("class", "comments-name-error");
+    }
+    else{
+      nameInput.classList.remove("comments-name-error");
+    }
+    if(userComment === ""){
+      textArea.setAttribute("class", "comments-content-error");
+    }
+    else{
+      textArea.classList.remove("comments-content-error");
+    }
+
+  } else {
+    nameInput.classList.remove("comments-name-error");
+    textArea.classList.remove("comments-content-error");
+    let obj = { name: userName, comment: userComment, date: userDate };
+    commentsArray.push(obj);
+    nameInput.value = "";
+    textArea.value = "";
+    userComments.innerHTML = "";
+
+    commentsArray.forEach((element) => {
+      populateComments(element);
+    });
+  }
 });

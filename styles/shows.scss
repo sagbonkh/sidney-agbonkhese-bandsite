@@ -95,6 +95,7 @@ iframe {
   }
 
   @include tablet {
+    padding: 5rem;
     &-text {
       font-size: $larger-sub;
     }
@@ -152,9 +153,11 @@ iframe {
   }
 
   @include tablet {
-    padding: 3rem;
+    padding:3rem 2.25rem 2.25rem;
     &-title{
         font-size: $larger-sect-header;
+        padding-bottom: 2.25rem;
+        margin-bottom: 0rem;
     }
     &-single {
       display: flex;
