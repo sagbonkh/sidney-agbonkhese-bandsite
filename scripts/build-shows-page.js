@@ -10,27 +10,6 @@ title.textContent = `Stripes of Yellow x For the Stings`;
 albumSect.appendChild(preText);
 albumSect.appendChild(title);
 
-function onSpotifyIframeApiReady(iFrame) {
-  const embedIFrame = document.createElement("div");
-  embedIFrame.setAttribute("id", "embed-iframe");
-  embedIFrame.setAttribute("class", "album-music");
-  albumSect.appendChild(embedIFrame);
-
-  const options = {
-    width: "100%",
-    height: "160",
-    uri: "spotify:track:5xFQlD4ITOWjZdHXjNghbX",
-  };
-  const callback = (EmbedController) => {
-    EmbedController.loadUri(episode.dataset.spotifyId);
-  };
-  iFrame.createController(embedIFrame, options, callback);
-}
-
-const scriptEl = document.createElement("script");
-scriptEl.setAttribute("src", "https://open.spotify.com/embed/iframe-api/v1");
-scriptEl.async = true;
-albumSect.appendChild(scriptEl);
 
 let showTitle = document.createElement("h2");
 showTitle.setAttribute("class", "shows-title");

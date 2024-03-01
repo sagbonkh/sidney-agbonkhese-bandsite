@@ -1,3 +1,8 @@
+import { BandSiteApi } from "./band-site-api.js";
+
+const apiKey = "77b54739-3df2-4aca-9c51-d7e6ea28be3f";
+const bandSiteApi = new BandSiteApi(apiKey);
+
 let commentSect = document.querySelector(".comments");
 let title = document.createElement("h1");
 title.classList.add("comments-title");
@@ -70,7 +75,7 @@ const populateComments = (element) => {
   userComment.classList.add("user-comments-comment");
 
   userName.textContent = element.name;
-  userDate.textContent = element.date;
+  userDate.textContent = element.timestamp;
   userComment.textContent = element.comment;
 
   userTextArea.appendChild(userName);
@@ -82,23 +87,45 @@ const populateComments = (element) => {
   userComments.appendChild(user);
 };
 
+const timeSinceComment = (timestamp) => {
+  const date = new Date();
+  const commentTime = new Date(timestamp);
+  const timeDifference = date.getTime() - commentTime.getTime();
+
+  const secs = Math.floor(timeDifference / 1000);
+  if (secs < 60) {
+    return `${secs}s ago`;
+  } else if (secs < 3600) {
+    const mins = Math.floor(secs / 60);
+    return `${mins} mins ago`;
+  } else if (secs < 86400) {
+    const hrs = Math.floor(secs / 3600);
+    return `${hrs} hours ago`;
+  } else {
+    const month = commentTime.getMonth() + 1;
+    const day = commentTime.getDate();
+    const year = commentTime.getFullYear();
+    return `${month}/${day}/${year}`;
+  }
+};
+
 const txtA = `This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic workdeserves reverence. Let us appreciate this for what it is and what it contains.`;
 const txtB = `I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.`;
 const txtC = `I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.`;
 let starterObjectA = {
   name: "Victor Pinto",
   comment: txtA,
-  date: "11/02/2023",
+  timestamp: "11/02/2023",
 };
 let starterObjectB = {
   name: "Christina Cabrera",
   comment: txtB,
-  date: "10/28/2023",
+  timestamp: "10/28/2023",
 };
 let starterObjectC = {
   name: "Isaac Tadesse",
   comment: txtC,
-  date: "10/20/2023",
+  timestamp: "10/20/2023",
 };
 let commentsArray = [starterObjectA, starterObjectB, starterObjectC];
 
@@ -112,38 +139,42 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   const userName = nameInput.value;
   const userComment = textArea.value;
-  const userDate = new Date().toLocaleDateString("en-CA", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  });
+
   if (userName === "" || userComment === "") {
     alert(`Username or comment not set. Please fill these fields.`);
 
-    if(userName === ""){
+    if (userName === "") {
       nameInput.setAttribute("class", "comments-name-error");
-    }
-    else{
+    } else {
       nameInput.classList.remove("comments-name-error");
     }
-    if(userComment === ""){
+    if (userComment === "") {
       textArea.setAttribute("class", "comments-content-error");
-    }
-    else{
+    } else {
       textArea.classList.remove("comments-content-error");
     }
-
   } else {
     nameInput.classList.remove("comments-name-error");
     textArea.classList.remove("comments-content-error");
-    let obj = { name: userName, comment: userComment, date: userDate };
-    commentsArray.push(obj);
-    nameInput.value = "";
-    textArea.value = "";
-    userComments.innerHTML = "";
+    const userInfo = {
+      name: userName,
+      comment: userComment,
+    };
+    bandSiteApi.postComment(userInfo);
 
-    commentsArray.forEach((element) => {
-      populateComments(element);
+    const commentData = bandSiteApi.getComments();
+    let commentsArray = [];
+    commentData.then((data) => {
+      commentsArray = [...data];
+    //   nameInput.value = "";
+    //   textArea.value = "";
+    //   userComments.innerHTML = "";
+      console.log(commentsArray);
+    //   commentsArray.forEach((element) => {
+    //     const date = timeSinceComment(element.timestamp);
+    //     element.timestamp = date;
+    //     populateComments(element);
+    //   });
     });
   }
 });
