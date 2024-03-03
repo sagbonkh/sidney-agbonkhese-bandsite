@@ -108,7 +108,6 @@ iframe {
   top: 0;
   display: flex;
   background-color: #323232;
-  color: #FFFFFF;
   font-family: "AvenirNext LT Pro";
   font-weight: 600;
 }
@@ -116,11 +115,13 @@ iframe {
   border-radius: 0.125em;
   text-decoration: none;
   font-weight: 400;
+  color: #E1E1E1;
 }
 .nav-bar__links__link--current {
   border-bottom: 0.1875rem solid #FFFFFF;
   padding-bottom: 1rem;
   font-weight: 600;
+  color: #FFFFFF;
 }
 
 .footer {
@@ -265,7 +266,8 @@ iframe {
   background-position: center;
   background-size: cover;
   display: flex;
-  height: 40vh;
+  height: -moz-fit-content;
+  height: fit-content;
   flex-direction: column;
   color: #FFFFFF;
 }

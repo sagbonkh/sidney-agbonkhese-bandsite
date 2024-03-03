@@ -82,7 +82,6 @@ iframe{
   top: 0;
   display: flex;
   background-color: $bandSite-Black;
-  color: $white;
   font-family: "AvenirNext LT Pro";
   font-weight: 600;
 
@@ -91,11 +90,13 @@ iframe{
       border-radius: 0.125em;
       text-decoration: none;
       font-weight: 400;
+      color: $mercury;
 
       &--current {
         border-bottom: 0.1875rem solid $white;
         padding-bottom: 1rem;
         font-weight: 600;
+        color: $white;
       }
     }
   }
