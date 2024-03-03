@@ -1,3 +1,7 @@
+import { BandSiteApi } from "./band-site-api.js";
+const apiKey = "77b54739-3df2-4aca-9c51-d7e6ea28be3f";
+
+let bandSiteApi = new BandSiteApi(apiKey);
 let albumSect = document.querySelector(".album");
 let showSect = document.querySelector(".shows");
 
@@ -10,7 +14,6 @@ title.textContent = `Stripes of Yellow x For the Stings`;
 albumSect.appendChild(preText);
 albumSect.appendChild(title);
 
-
 let showTitle = document.createElement("h2");
 showTitle.setAttribute("class", "shows-title");
 showTitle.textContent = "Shows";
@@ -19,44 +22,39 @@ showSect.appendChild(showTitle);
 let gigs = document.createElement("div");
 gigs.setAttribute("class", "shows-gig");
 
-showA = {
-  date: "Mon Sept 09 2024",
-  venue: "Ronald lane",
-  location: "San Fransisco, CA",
-};
+function changeDateFormat(timestamp) {
+  let showTime = new Date(timestamp);
+  const monthNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-showB = {
-  date: "Tue Sept 17 2024",
-  venue: "Pier 3 East",
-  location: "San Fransisco, CA",
-};
+  const monthIndex = showTime.getMonth();
+  const day = showTime.getDate();
+  const year = showTime.getFullYear();
 
-showC = {
-  date: "Sat Oct 12 2024",
-  venue: "View Lounge",
-  location: "San Fransisco, CA",
-};
+  const dayIndex = showTime.getDay();
+  const dayOfWeek = dayNames[dayIndex];
+  const month = monthNames[monthIndex];
+  
+  return `${dayOfWeek} ${month} ${day} ${year}`;
+}
 
-showD = {
-  date: "Sat Nov 16 2024",
-  venue: "Hyatt Agency",
-  location: "San Fransisco, CA",
-};
+async function setGigs() {
+  const arr = await bandSiteApi.getShows();
+  console.log(arr);
 
-showE = {
-  date: "Fri Nov 29 2024",
-  venue: "Moscow Center",
-  location: "San Fransisco, CA",
-};
-
-showF = {
-  date: "Wed Dec 18 2024",
-  venue: "Press Club",
-  location: "San Fransisco, CA",
-};
-
-gigsArray = [showA, showB, showC, showD, showE, showF];
-const setGigs = (arr) => {
   arr.forEach((element) => {
     let singleGig = document.createElement("div");
     singleGig.setAttribute("class", "shows-single");
@@ -67,7 +65,7 @@ const setGigs = (arr) => {
 
     let showDate = document.createElement("p");
     showDate.setAttribute("class", "shows-date");
-    showDate.textContent = element.date;
+    showDate.textContent = changeDateFormat(element.date);
 
     singleGig.appendChild(dateLabel);
     singleGig.appendChild(showDate);
@@ -78,7 +76,7 @@ const setGigs = (arr) => {
 
     let showVenue = document.createElement("p");
     showVenue.setAttribute("class", "shows-text");
-    showVenue.textContent = element.venue;
+    showVenue.textContent = element.place;
 
     singleGig.appendChild(venueLabel);
     singleGig.appendChild(showVenue);
@@ -101,9 +99,9 @@ const setGigs = (arr) => {
 
     gigs.appendChild(singleGig);
   });
-};
+}
 
-setGigs(gigsArray);
+setGigs();
 let dateLabel = document.createElement("p");
 dateLabel.setAttribute("class", "shows-super-label");
 dateLabel.textContent = "DATE";
