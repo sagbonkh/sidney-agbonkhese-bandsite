@@ -135,11 +135,28 @@ commentsArray.forEach((element) => {
   populateComments(element);
 });
 
-form.addEventListener("submit", (event) => {
+async function fetchUserComments() {
+  try {
+    const response = await bandSiteApi.getComments();
+    return response;
+  } catch (error) {
+    console.error(`Error fetching user data ${error}`);
+  }
+}
+
+async function postUserComment(comment) {
+  try {
+    await bandSiteApi.postComment(comment);
+    return;
+  } catch (error) {
+    console.error(`Error posting user data ${error}`);
+  }
+}
+
+async function handleSubmit(event) {
   event.preventDefault();
   const userName = nameInput.value;
   const userComment = textArea.value;
-
   if (userName === "" || userComment === "") {
     alert(`Username or comment not set. Please fill these fields.`);
 
@@ -160,21 +177,18 @@ form.addEventListener("submit", (event) => {
       name: userName,
       comment: userComment,
     };
-    bandSiteApi.postComment(userInfo);
+    await postUserComment(userInfo);
+    commentsArray = await fetchUserComments();
 
-    const commentData = bandSiteApi.getComments();
-    let commentsArray = [];
-    commentData.then((data) => {
-      commentsArray = [...data];
-    //   nameInput.value = "";
-    //   textArea.value = "";
-    //   userComments.innerHTML = "";
-      console.log(commentsArray);
-    //   commentsArray.forEach((element) => {
-    //     const date = timeSinceComment(element.timestamp);
-    //     element.timestamp = date;
-    //     populateComments(element);
-    //   });
+    nameInput.value = "";
+    textArea.value = "";
+    userComments.innerHTML = "";
+    commentsArray.forEach((element) => {
+      const date = timeSinceComment(element.timestamp);
+      element.timestamp = date;
+      populateComments(element);
     });
   }
-});
+}
+
+form.addEventListener("submit", handleSubmit);
