@@ -111,13 +111,13 @@ iframe {
   font-family: "AvenirNext LT Pro";
   font-weight: 600;
 }
-.nav-bar__links__link {
+.nav-bar-links__link {
   border-radius: 0.125em;
   text-decoration: none;
   font-weight: 400;
   color: #E1E1E1;
 }
-.nav-bar__links__link--current {
+.nav-bar-links__link-current {
   border-bottom: 0.1875rem solid #FFFFFF;
   padding-bottom: 1rem;
   font-weight: 600;
@@ -165,17 +165,17 @@ iframe {
   margin: 0;
   font-size: 0.875rem;
 }
-.nav-bar__links {
+.nav-bar-links {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
 }
-.nav-bar__links__link {
+.nav-bar-links__link {
   display: flex;
   width: 50%;
   justify-content: center;
 }
-.nav-bar__links__link:hover {
+.nav-bar-links__link:hover {
   border-bottom: 0.125rem solid #FFFFFF;
   padding-bottom: 1rem;
 }
@@ -208,17 +208,17 @@ iframe {
     margin: 0;
     font-size: 0.875rem;
   }
-  .nav-bar__links {
+  .nav-bar-links {
     justify-content: flex-start;
     width: 100%;
   }
-  .nav-bar__links__link {
+  .nav-bar-links__link {
     margin-left: 4rem;
     padding-top: 1rem;
     width: auto;
     font-size: 0.875rem;
   }
-  .nav-bar__header {
+  .nav-bar-header {
     font-size: 1.5rem;
   }
 }
@@ -248,7 +248,7 @@ iframe {
     margin: 0;
     font-size: 0.875rem;
   }
-  .nav-bar__header {
+  .nav-bar-header {
     font-size: 1.5rem;
   }
 }
@@ -353,6 +353,7 @@ iframe {
 
 .gallery {
   padding: 1.5rem 2rem 1rem;
+  background-color: #FAFAFA;
 }
 .gallery__title {
   font-size: 1.5rem;
