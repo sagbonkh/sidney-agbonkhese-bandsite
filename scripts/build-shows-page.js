@@ -1,149 +1,126 @@
-let albumSect = document.querySelector(".album");
-let showSect = document.querySelector(".shows");
+import { BandSiteApi } from "./band-site-api.js";
+const apiKey = "77b54739-3df2-4aca-9c51-d7e6ea28be3f";
 
-let preText = document.createElement("p");
+const bandSiteApi = new BandSiteApi(apiKey);
+const albumSect = document.querySelector(".album");
+const showSect = document.querySelector(".shows");
+
+const preText = document.createElement("p");
 preText.setAttribute("class", "album-text");
 preText.textContent = `Beautiful Beasts Album`;
-let title = document.createElement("h1");
+const title = document.createElement("h1");
 title.setAttribute("class", "album-title");
 title.textContent = `Stripes of Yellow x For the Stings`;
 albumSect.appendChild(preText);
 albumSect.appendChild(title);
 
-function onSpotifyIframeApiReady(iFrame) {
-  const embedIFrame = document.createElement("div");
-  embedIFrame.setAttribute("id", "embed-iframe");
-  embedIFrame.setAttribute("class", "album-music");
-  albumSect.appendChild(embedIFrame);
-
-  const options = {
-    width: "100%",
-    height: "160",
-    uri: "spotify:track:5xFQlD4ITOWjZdHXjNghbX",
-  };
-  const callback = (EmbedController) => {
-    EmbedController.loadUri(episode.dataset.spotifyId);
-  };
-  iFrame.createController(embedIFrame, options, callback);
-}
-
-const scriptEl = document.createElement("script");
-scriptEl.setAttribute("src", "https://open.spotify.com/embed/iframe-api/v1");
-scriptEl.async = true;
-albumSect.appendChild(scriptEl);
-
-let showTitle = document.createElement("h2");
+const showTitle = document.createElement("h2");
 showTitle.setAttribute("class", "shows-title");
 showTitle.textContent = "Shows";
 showSect.appendChild(showTitle);
 
-let gigs = document.createElement("div");
+const gigs = document.createElement("div");
 gigs.setAttribute("class", "shows-gig");
 
-showA = {
-  date: "Mon Sept 09 2024",
-  venue: "Ronald lane",
-  location: "San Fransisco, CA",
-};
+function changeDateFormat(timestamp) {
+  const showTime = new Date(timestamp);
+  const monthNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-showB = {
-  date: "Tue Sept 17 2024",
-  venue: "Pier 3 East",
-  location: "San Fransisco, CA",
-};
+  const monthIndex = showTime.getMonth();
+  const day = showTime.getDate();
+  const year = showTime.getFullYear();
 
-showC = {
-  date: "Sat Oct 12 2024",
-  venue: "View Lounge",
-  location: "San Fransisco, CA",
-};
+  const dayIndex = showTime.getDay();
+  const dayOfWeek = dayNames[dayIndex];
+  const month = monthNames[monthIndex];
 
-showD = {
-  date: "Sat Nov 16 2024",
-  venue: "Hyatt Agency",
-  location: "San Fransisco, CA",
-};
+  return `${dayOfWeek} ${month} ${day} ${year}`;
+}
 
-showE = {
-  date: "Fri Nov 29 2024",
-  venue: "Moscow Center",
-  location: "San Fransisco, CA",
-};
+async function setGigs() {
+  const arr = await bandSiteApi.getShows();
+  console.log(arr);
 
-showF = {
-  date: "Wed Dec 18 2024",
-  venue: "Press Club",
-  location: "San Fransisco, CA",
-};
-
-gigsArray = [showA, showB, showC, showD, showE, showF];
-const setGigs = (arr) => {
   arr.forEach((element) => {
-    let singleGig = document.createElement("div");
+    const singleGig = document.createElement("div");
     singleGig.setAttribute("class", "shows-single");
 
-    let dateLabel = document.createElement("p");
+    const dateLabel = document.createElement("p");
     dateLabel.setAttribute("class", "shows-label");
     dateLabel.textContent = "DATE";
 
-    let showDate = document.createElement("p");
+    const showDate = document.createElement("p");
     showDate.setAttribute("class", "shows-date");
-    showDate.textContent = element.date;
+    showDate.textContent = changeDateFormat(element.date);
 
     singleGig.appendChild(dateLabel);
     singleGig.appendChild(showDate);
 
-    let venueLabel = document.createElement("p");
+    const venueLabel = document.createElement("p");
     venueLabel.setAttribute("class", "shows-label");
     venueLabel.textContent = "VENUE";
 
-    let showVenue = document.createElement("p");
+    const showVenue = document.createElement("p");
     showVenue.setAttribute("class", "shows-text");
-    showVenue.textContent = element.venue;
+    showVenue.textContent = element.place;
 
     singleGig.appendChild(venueLabel);
     singleGig.appendChild(showVenue);
 
-    let locationLabel = document.createElement("p");
+    const locationLabel = document.createElement("p");
     locationLabel.setAttribute("class", "shows-label");
     locationLabel.textContent = "LOCATION";
 
-    let showLocation = document.createElement("p");
+    const showLocation = document.createElement("p");
     showLocation.setAttribute("class", "shows-text");
     showLocation.textContent = element.location;
 
     singleGig.appendChild(locationLabel);
     singleGig.appendChild(showLocation);
 
-    let buyButton = document.createElement("button");
+    const buyButton = document.createElement("button");
     buyButton.setAttribute("class", "shows-btn");
     buyButton.textContent = "BUY TICKETS";
     singleGig.appendChild(buyButton);
 
     gigs.appendChild(singleGig);
   });
-};
+}
 
-setGigs(gigsArray);
-let dateLabel = document.createElement("p");
+setGigs();
+const dateLabel = document.createElement("p");
 dateLabel.setAttribute("class", "shows-super-label");
 dateLabel.textContent = "DATE";
 
-let venueLabel = document.createElement("p");
+const venueLabel = document.createElement("p");
 venueLabel.setAttribute("class", "shows-super-label");
 venueLabel.textContent = "VENUE";
 
-let locationLabel = document.createElement("p");
+const locationLabel = document.createElement("p");
 locationLabel.setAttribute("class", "shows-super-label");
 locationLabel.textContent = "LOCATION";
 
-let singleGig = document.createElement("div");
+const singleGig = document.createElement("div");
 singleGig.setAttribute("class", "shows-super-labels");
 singleGig.appendChild(dateLabel);
 singleGig.appendChild(venueLabel);
 singleGig.appendChild(locationLabel);
 
-let showDiv = document.createElement("div");
+const showDiv = document.createElement("div");
 showDiv.setAttribute("class", "shows-sect");
 showDiv.appendChild(singleGig);
 showDiv.appendChild(gigs);
